@@ -1,0 +1,272 @@
+/* Reset básico de margens e paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7; /* Cor de fundo suave */
+    color: #333; /* Cor de texto mais escura para boa legibilidade */
+}
+
+/* Estilo do cabeçalho */
+nav {
+    background-color: #2c3e50; /* Azul escuro para a barra de navegação */
+}
+
+.navbar-brand {
+    color: #ecf0f1 !important; /* Cor clara para o nome da marca */
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #ecf0f1 !important; /* Cor clara para os links */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f39c12 !important; /* Cor dourada quando o link é sobrevoado */
+}
+
+/* Banner rotativo */
+.carousel-inner img {
+    max-height: 500px;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #2c3e50; /* Cor das setas do carrossel */
+}
+
+/* Estilo do título Lançamentos */
+.subLancamentos {
+    text-align: center;
+    font-size: 3rem; /* Tamanho maior para destaque */
+    font-weight: bold;
+    color: #2c3e50; /* Cor escura para contraste */
+    margin: 40px 0;
+    text-transform: uppercase; /* Para deixar o título em maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre as letras para um visual mais espaçado */
+    position: relative;
+}
+
+.subLancamentos::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background-color: #f39c12; /* Linha dourada abaixo do título */
+    bottom: -10px;
+    left: 25%;
+}
+
+/* Cards de produtos */
+.row-cols-1 {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    margin: 10px; /* Espaçamento entre os cards */
+    width: 280px; /* Largura fixa para manter os cards do mesmo tamanho */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Eleva o card quando o mouse passa sobre ele */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.3rem; /* Tamanho de fonte maior */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: capitalize; /* Primeira letra de cada palavra em maiúscula */
+}
+
+.card-text {
+    color: #777;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd; /* Linha abaixo da imagem */
+}
+
+/* Botões de adição ao carrinho */
+.btn {
+    background-color: #f39c12;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    cursor: pointer;
+}
+/* Estilo para o botão "Comprar" */
+.btn-comprar {
+    background-color: #f39c12;  /* Cor de fundo dourada */
+    color: white;               /* Texto branco */
+    font-size: 1rem;            /* Tamanho da fonte */
+    padding: 10px 20px;         /* Espaçamento interno */
+    border: none;               /* Remove borda */
+    border-radius: 5px;         /* Bordas arredondadas */
+    cursor: pointer;           /* Cursor de mãozinha ao passar sobre o botão */
+    transition: background-color 0.3s, transform 0.3s;  /* Transições para hover */
+    margin-top: 10px;           /* Espaçamento acima do botão */
+}
+
+/* Efeito de hover no botão */
+.btn-comprar:hover {
+    background-color: #e67e22;  /* Cor de fundo mais escura */
+    transform: scale(1.05);      /* Leve aumento no tamanho do botão */
+}
+
+/* Efeito de foco no botão */
+.btn-comprar:focus {
+    outline: none; /* Remove o contorno azul ao clicar */
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.5); /* Adiciona sombra para destaque */
+}
+
+
+.btn:hover {
+    background-color: #e67e22; /* Cor mais escura ao passar o mouse */
+}
+
+/* Rodapé */
+
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #f39c12;
+}
+
+/* Links do rodapé */
+footer .text-uppercase {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .row-cols-md-4 {
+        flex-direction: column;
+    }
+
+    .carousel-inner img {
+        max-height: 400px;
+    }
+
+    .card {
+        width: 90%; /* Ajusta a largura dos cards para telas menores */
+        margin-bottom: 20px;
+    }
+}
+/* Card individual */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease; /* Transição suave para hover */
+    display: flex;
+    flex-direction: column; /* Torna o card uma coluna flexível */
+    height: 100%; /* Garante que o card ocupe toda a altura disponível */
+}
+
+/* Efeito de hover nos cards */
+.card:hover {
+    transform: translateY(-5px); /* Eleva um pouco o card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+/* Imagem dos cards */
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Garante que a imagem preencha o espaço de maneira proporcional */
+    border-radius: 8px 8px 0 0; /* Bordas arredondadas no topo */
+}
+
+/* Corpo do card */
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espaço entre os elementos */
+    flex-grow: 1; /* Faz com que o corpo do card ocupe o espaço disponível */
+}
+
+/* Título do card */
+.card-title {
+    font-size: 1.25rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Texto do card (descricao e preço) */
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Estilo do botão 'Comprar' */
+.btn-comprar {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    align-self: center; /* Alinha o botão à esquerda, se preferir centralizado, use 'center' */
+    margin-top: auto; /* Garante que o botão ficará na parte inferior do card */
+}
+
+/* Efeito de hover no botão 'Comprar' */
+.btn-comprar:hover {
+    background-color: #218838; /* Verde mais escuro */
+    transform: scale(1.05); /* Leve aumento no botão */
+}
+
+/* Responsividade: Para dispositivos menores */
+@media (max-width: 767px) {
+    .row-cols-1 {
+        grid-template-columns: repeat(1, 1fr); /* Exibe 1 card por linha em telas pequenas */
+    }
+}
+
