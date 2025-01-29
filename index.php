@@ -61,13 +61,13 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                <img src="imagens/304b0ba836f045e4fc04cf8f6391e991.jpg" class="d-block w-100" alt="...">
+                <img src="https://www.fantoy.com.br/media/mageplaza/bannerslider/banner/image/p/r/promo_o_bannerdesk-min.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-                <img src="imagens/304b0ba836f045e4fc04cf8f6391e991.jpg" class="d-block w-100" alt="...">
+                <img src="https://www.fantoy.com.br/media/mageplaza/bannerslider/banner/image/p/r/promo_o_bannerdesk-min.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="imagens/304b0ba836f045e4fc04cf8f6391e991.jpg" class="d-block w-100" alt="...">
+                <img src="https://www.fantoy.com.br/media/mageplaza/bannerslider/banner/image/p/r/promo_o_bannerdesk-min.jpg" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

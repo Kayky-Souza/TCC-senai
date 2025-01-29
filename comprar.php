@@ -21,47 +21,26 @@ if (isset($_GET['id'])) {
     exit;
 }
 
-// Função para calcular o frete via API dos Correios
-function calcularFrete($cep_destino, $peso) {
-    $cep_origem = "01001000"; // CEP de origem (exemplo, você pode definir de acordo com sua loja)
-    
-    // Montar a URL da API dos Correios para cotação de frete
-    $url = "https://api.linkcorreios.com.br/calcularfrete/v1/?cepDestino={$cep_destino}&cepOrigem={$cep_origem}&peso={$peso}&formato=xml&servico=04014";
-
-    // Fazer a requisição à API
-    $response = file_get_contents($url);
-    
-    if ($response) {
-        // Converter o XML para array
-        $frete_data = simplexml_load_string($response);
-        return (float) $frete_data->Valor;
-    } else {
-        return false;
-    }
-}
-
 // Verificar se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $peso = $produto['peso']; // Pega o peso do produto
-    $nome_cliente = $_POST['nome_cliente'];
-    $endereco = $_POST['endereco'];
-    $email = $_POST['email'];
-    $quantidade = $_POST['quantidade'];
-    $cep_destino = $_POST['cep'];
-    $cep_origem = $produto['cep_origem'];
-
-    // Calcular o frete com a função
-    $frete = calcularFrete($cep_destino, $produto['peso']);
+    // Coletar as informações do formulário
+    $nome_cliente = mysqli_real_escape_string($conexao, $_POST['nome_cliente']);
+    $endereco = mysqli_real_escape_string($conexao, $_POST['endereco']);
+    $email = mysqli_real_escape_string($conexao, $_POST['email']);
+    $cep = mysqli_real_escape_string($conexao, $_POST['cep']);
+    $quantidade = intval($_POST['quantidade']);
     
-    if ($frete !== false) {
-        $total_com_frete = ($produto['preco'] * $quantidade) + $frete;
-        echo "<p><strong>Valor do Frete:</strong> R$ " . number_format($frete, 2, ',', '.') . "</p>";
-        echo "<p><strong>Total com Frete:</strong> R$ " . number_format($total_com_frete, 2, ',', '.') . "</p>";
-
-        // Aqui você pode continuar com o processamento do pedido (ex: salvar no banco)
-    } else {
-        echo "<p>Erro ao calcular o frete. Tente novamente mais tarde.</p>";
-    }
+    // Aqui você pode realizar o processo de salvar a compra no banco de dados, caso deseje.
+    // Exemplo de inserção:
+    /*
+    $sql_compra = "INSERT INTO compras (produto_id, nome_cliente, endereco, email, cep, quantidade) 
+                   VALUES ('$produto_id', '$nome_cliente', '$endereco', '$email', '$cep', '$quantidade')";
+    mysqli_query($conexao, $sql_compra);
+    */
+    
+    // Agora, redireciona o usuário para o link de pagamento
+    header("Location: https://mpago.la/2uzuw21");
+    exit; // Evitar que o código continue após o redirecionamento
 }
 
 ?>
@@ -73,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - <?= htmlspecialchars($produto['nome']); ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <div class="container mt-5">
